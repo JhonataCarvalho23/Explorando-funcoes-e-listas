@@ -1,27 +1,52 @@
-// Exercicio 1
 let titulo = document.querySelector('.titulo');
 titulo.innerHTML = 'Hora do Desafio! 👩‍💻';
 
-// Exercicio 2
+// Exercicio 1
+
 function exibirNoConsole() {
-	console.log('O botão foi clicado.');
+	console.log('Olá, mundo!');
 }
+
+
+// Exercicio 2
+
+function saudar(nome){
+	console.log(`Olá, ${nome}!`);
+}
+saudar('Jhonata');
+
 
 // Exercicio 3
-function exibirAlerta() {
-	alert('Eu amo JavaScript.');
+
+function verDobro(numero){
+	return numero * 2;
 }
+let dobro = verDobro(2);
+console.log(dobro);
+
 
 // Exercicio 4
-function perguntarCidade() {
-	cidade = prompt('Me fale uma cidade do Brasil:');
-	alert(`Estive em ${cidade} e lembrei de você.`)
+
+function verMedia(num1, num2, num3){
+	return (num1 + num2 + num3) / 3;
 }
+let media = verMedia(5, 7, 9);
+console.log(`A média dos números 5, 7 e 9 é ${media}`);
+
 
 // Exercicio 5
-function fazerSoma(){
-	num1 = parseInt(prompt('Fale o primeiro número:'));
-	num2 = parseInt(prompt('Fale outro número'));
-	let resultado = num1 + num2;
-	alert(`A soma de ${num1} e ${num2} é igual a ${resultado}.`);
+
+function verMaiorNumero(numero1, numero2){
+	return Math.max(numero1, numero2);
 }
+let maior = verMaiorNumero(10, 20);
+console.log(`O maior número é ${maior}`);
+
+
+// Exercicio 6
+
+function multiplicar(num) {
+	return num * num;
+}
+let multiplicacao = multiplicar(2);
+console.log(`O número 2 multiplicado por ele mesmo é igual a ${multiplicacao}`);
