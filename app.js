@@ -1,4 +1,5 @@
 let numeroSecreto = gerarNumeroSecreto();
+let tentativa = 1;
 
 function exibirNaTela(tag, texto) {
 	// tag e texto - são parametros que a função precisa receber para que ela funcione
@@ -6,14 +7,17 @@ function exibirNaTela(tag, texto) {
 	campo.innerHTML = texto;
 } 
 
+
 function gerarNumeroSecreto(){
 	// return - retorna alguma coisa quando a função é chamada
-	return parseInt(Math.random() * 10 + 1);
+	return parseInt(Math.random() * 20 + 1);
 }
+
+console.log(numeroSecreto)
 
 // chamando a função e definindo parametro a ela
 exibirNaTela('.titulo_do_jogo', 'Jogo do Número Secreto'); 
-exibirNaTela('.texto__paragrafo', 'Esolha um número entre 1 e 10:');
+exibirNaTela('.texto__paragrafo', 'Esolha um número entre 1 e 100:');
 
 
 function verificarChute() {
@@ -22,12 +26,24 @@ function verificarChute() {
 	let chute = document.querySelector('input').value;
 
 	if (chute == numeroSecreto) {
-		alert('Você acertou');
+		let palavraTentativa = tentativa > 1 ? 'tentativas' : 'tentativa';
+		let mensagemTentativa = `Você acertou o número secreto em ${tentativa} ${palavraTentativa}!`;
+
+		exibirNaTela('.titulo_do_jogo', 'Você acertou!');
+		exibirNaTela('.texto__paragrafo', mensagemTentativa);
+
 	} else {
 		if (chute < numeroSecreto) {
-			alert('Errou. Tente um número maior');
+			exibirNaTela('.texto__paragrafo', 'Errou. Tente um número maior');
 		} else {
-			alert('Errou. Tente um número menor');
+			exibirNaTela('.texto__paragrafo', 'Errou. Tente um número menor');
 		}
+		tentativa++;
+		limparCampo();
 	}
+}
+
+function limparCampo(){
+	let chute = document.querySelector('input');
+	chute.value = '';
 }
