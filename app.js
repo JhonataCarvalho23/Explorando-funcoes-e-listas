@@ -1,3 +1,6 @@
+// cria uma lista vazia
+let listaDeNumerosSorteados = [];
+let numeroMaximo = 50;
 let numeroSecreto = gerarNumeroSecreto();
 let tentativa = 1;
 
@@ -9,13 +12,32 @@ function exibirNaTela(tag, texto) {
 
 
 function gerarNumeroSecreto(){
-	// return - retorna alguma coisa quando a função é chamada
-	return parseInt(Math.random() * 100 + 1);
+	
+	let numeroEscolhido = parseInt(Math.random() * numeroMaximo + 1);
+
+	// length - mostra o tamanho da lista (quanidade de elementos)
+	let quantidadeDeElementosDaLista = listaDeNumerosSorteados.length;
+
+	// se a quantidade de elemtos for igual ao número maximo reinicia a lista
+	if (quantidadeDeElementosDaLista == numeroMaximo){
+		listaDeNumerosSorteados = [];
+	}
+
+	// includes - verifica se um número já tem na lista
+	if (listaDeNumerosSorteados.includes(numeroEscolhido)){
+		return gerarNumeroSecreto();
+	} else {
+
+		// push - adiciona um número na lista
+		listaDeNumerosSorteados.push(numeroEscolhido);
+		return numeroEscolhido;
+	}
+
 }
 
 function exibirMensagemInicial() {
 	exibirNaTela('.titulo_do_jogo', 'Jogo do Número Secreto'); 
-	exibirNaTela('.texto__paragrafo', 'Esolha um número entre 1 e 100:');
+	exibirNaTela('.texto__paragrafo', `Esolha um número entre 1 e ${numeroMaximo}:`);
 }
 
 exibirMensagemInicial();
