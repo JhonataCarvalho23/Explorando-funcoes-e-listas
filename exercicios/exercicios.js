@@ -1,52 +1,94 @@
-let titulo = document.querySelector('.titulo');
-titulo.innerHTML = 'Hora do Desafio! 👩‍💻';
+// let titulo = document.querySelector('.titulo');
+// titulo.innerHTML = 'Hora do Desafio! 👩‍💻';
 
 // Exercicio 1
 
-function exibirNoConsole() {
-	console.log('Olá, mundo!');
+function calcularImc(peso, altura){
+	resultado = peso / (altura * altura);
+	return resultado.toFixed(2);
 }
+let IMC = calcularImc(70, 1.75);
+console.log(IMC);
 
 
 // Exercicio 2
+function calcularFatorial(numero){
 
-function saudar(nome){
-	console.log(`Olá, ${nome}!`);
+	if (numero == 0 || numero == 1){
+		return 1;
+	}
+
+	let resultadoDaFatoracao = 1;
+
+	for (let i = 2; i <= numero; i++){
+		resultadoDaFatoracao *= i;
+	}
+
+	return resultadoDaFatoracao;
+
 }
-saudar('Jhonata');
+let fatoracao = calcularFatorial(5);
+console.log(fatoracao)
+
 
 
 // Exercicio 3
 
-function verDobro(numero){
-	return numero * 2;
+function converterParaDolar(valor){
+
+	let conversao = valor * 4.80;
+
+	return conversao;
 }
-let dobro = verDobro(2);
-console.log(dobro);
+let valorEmReais = converterParaDolar(20);
+console.log(valorEmReais);
 
 
 // Exercicio 4
 
-function verMedia(num1, num2, num3){
-	return (num1 + num2 + num3) / 3;
+function calcularArea(altura, comprimento){
+
+	let area = altura * comprimento;
+
+	return area;
+
 }
-let media = verMedia(5, 7, 9);
-console.log(`A média dos números 5, 7 e 9 é ${media}`);
+function calcularPerimetro(altura, comprimento){
+
+	let perimetro = 2 * (altura + comprimento);
+
+	return perimetro;
+
+}
+let area = calcularArea(4, 5);
+let perimetro = calcularPerimetro(4 , 5);
+console.log(area);
+console.log(perimetro);
 
 
 // Exercicio 5
 
-function verMaiorNumero(numero1, numero2){
-	return Math.max(numero1, numero2);
+function calcularAreaPerimetroSalaCircular(raio) {
+  let area = Math.PI * raio * raio;
+  let perimetro = 2 * Math.PI * raio;
+  
+  console.log(`Área da sala circular: ${area.toFixed(2)} metros quadrados`);
+  console.log(`Perímetro da sala circular: ${perimetro.toFixed(2)} metros`);
 }
-let maior = verMaiorNumero(10, 20);
-console.log(`O maior número é ${maior}`);
+let raio = 4;
+calcularAreaPerimetroSalaCircular(raio);
 
 
 // Exercicio 6
 
-function multiplicar(num) {
-	return num * num;
+function calcularTabuada(num){
+
+
+	for (let i = 1; i <= 10; i++){
+
+		let resultadoDaTabuada = num * i;
+		console.log(`${num} x ${i} = ${resultadoDaTabuada}`);
+	}
+
 }
-let multiplicacao = multiplicar(2);
-console.log(`O número 2 multiplicado por ele mesmo é igual a ${multiplicacao}`);
+let tabuada = calcularTabuada(5);

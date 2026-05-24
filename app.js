@@ -10,14 +10,15 @@ function exibirNaTela(tag, texto) {
 
 function gerarNumeroSecreto(){
 	// return - retorna alguma coisa quando a função é chamada
-	return parseInt(Math.random() * 20 + 1);
+	return parseInt(Math.random() * 100 + 1);
 }
 
-console.log(numeroSecreto)
+function exibirMensagemInicial() {
+	exibirNaTela('.titulo_do_jogo', 'Jogo do Número Secreto'); 
+	exibirNaTela('.texto__paragrafo', 'Esolha um número entre 1 e 100:');
+}
 
-// chamando a função e definindo parametro a ela
-exibirNaTela('.titulo_do_jogo', 'Jogo do Número Secreto'); 
-exibirNaTela('.texto__paragrafo', 'Esolha um número entre 1 e 100:');
+exibirMensagemInicial();
 
 
 function verificarChute() {
@@ -31,6 +32,11 @@ function verificarChute() {
 
 		exibirNaTela('.titulo_do_jogo', 'Você acertou!');
 		exibirNaTela('.texto__paragrafo', mensagemTentativa);
+
+		// getElementById - busca um id no html
+		// removeAttribute - remove o atributo de um elemento html
+		// disabled = desabilitado
+		document.getElementById('reiniciar').removeAttribute('disabled');
 
 	} else {
 		if (chute < numeroSecreto) {
@@ -46,4 +52,12 @@ function verificarChute() {
 function limparCampo(){
 	let chute = document.querySelector('input');
 	chute.value = '';
+}
+
+function novoJogo(){
+	numeroSecreto = gerarNumeroSecreto();
+	limparCampo();
+	exibirMensagemInicial();
+	tentativa = 1;
+	document.getElementById('reiniciar').setAttribute('disabled', true)
 }
