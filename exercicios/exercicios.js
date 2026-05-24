@@ -1,5 +1,5 @@
-// let titulo = document.querySelector('.titulo');
-// titulo.innerHTML = 'Hora do Desafio! 👩‍💻';
+let titulo = document.querySelector('.titulo');
+titulo.innerHTML = 'Hora do Desafio! 👩‍💻';
 
 // Exercicio 1
 
